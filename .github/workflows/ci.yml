@@ -34,6 +34,7 @@ jobs:
       - name: install openssl
         run: |
           vcpkg install openssl:x64-windows
+          vcpkg integrate install
       - uses: actions-rs/cargo@v1
         with:
           rust-version: stable
