@@ -36,6 +36,7 @@ jobs:
         run: |
           vcpkg install openssl:x64-windows-static-md
           vcpkg install sqlite3:x64-windows-static-md
+          vcpkg integrate install
       - name: test
         uses: actions-rs/cargo@v1
         with:
