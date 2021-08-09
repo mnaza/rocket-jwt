@@ -8,6 +8,7 @@ on:
 
 jobs:
   test-lin-mac:
+    if: ${{ false }}
     name: Test Rust ${{ matrix.rust }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
@@ -33,7 +34,6 @@ jobs:
         uses: actions/checkout@v2
       - name: install openssl
         run: |
-          wget http://slproweb.com/download/Win32OpenSSL-1_1_1k.msi
           vcpkg install openssl:x64-windows
           vcpkg integrate install
           set VCPKG_ROOT=C:/vcpkg/
@@ -43,6 +43,7 @@ jobs:
           command: test
 
   nux_arm7:
+    if: ${{ false }}
     name: Linux ARMv7
     runs-on: ubuntu-latest
     steps:
