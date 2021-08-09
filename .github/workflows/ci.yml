@@ -34,10 +34,10 @@ jobs:
         uses: actions/checkout@v2
       - name: install openssl
         run: |
-          vcpkg install openssl:x64-windows
-          vcpkg integrate install
-          set VCPKG_ROOT=C:/vcpkg/
-      - uses: actions-rs/cargo@v1
+          vcpkg install openssl:x64-windows-static-md
+          vcpkg install sqlite3:x64-windows-static-md
+      - name: test
+        uses: actions-rs/cargo@v1
         with:
           rust-version: stable
           command: test
