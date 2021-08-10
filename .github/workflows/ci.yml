@@ -8,7 +8,6 @@ on:
 
 jobs:
   test-lin-mac:
-    if: ${{ false }}
     name: Test Rust ${{ matrix.rust }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
@@ -24,8 +23,8 @@ jobs:
           rust-version: ${{ matrix.rust }}
           command: test
 
-  test-win:
-    name: Test Rust stable on Windows
+  test-win64:
+    name: Test Rust stable on Windows 64-bit
     runs-on: windows-latest
     strategy:
       fail-fast: false
@@ -42,6 +41,25 @@ jobs:
         with:
           rust-version: stable
           command: test
+
+  test-win32:
+    name: Test Rust stable on Windows 32-bit
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: install openssl
+        run: |
+          vcpkg install openssl:x86-windows-static-md
+          vcpkg install sqlite3:x86-windows-static-md
+          vcpkg integrate install
+      - name: test
+        uses: actions-rs/cargo@v1
+        with:
+          rust-version: stable
+          command: test --target=i686-pc-windows-msvc
 
   nux_arm7:
     if: ${{ false }}
