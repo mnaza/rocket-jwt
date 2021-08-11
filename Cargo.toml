@@ -29,6 +29,10 @@ postgres = ["diesel/postgres", "diesel/r2d2"]
 sqlite = ["diesel/sqlite", "diesel/r2d2"]
 create-user-binary = ["rpassword"]
 
+[dependencies.sqlite3-src]
+version="0.2"
+features=["bundled"]
+
 [[bin]]
 name = "rocketjwt"
 path = "src/main.rs"
