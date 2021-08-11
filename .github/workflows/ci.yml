@@ -16,30 +16,12 @@ jobs:
         include:
         - { rust: stable,            os: macos-latest }
         - { rust: stable,            os: ubuntu-latest }
+        - { rust: stable,            os: windows-latest }
     steps:
       - uses: actions/checkout@v2
       - uses: actions-rs/cargo@v1
         with:
-          rust-version: ${{ matrix.rust }}
-          command: test
-
-  test-win:
-    name: Test Rust stable on Windows 64-bit
-    runs-on: windows-latest
-    strategy:
-      fail-fast: false
-    steps:
-      - name: Check out repository code
-        uses: actions/checkout@v2
-      - name: install openssl
-        run: |
-          vcpkg install openssl:x64-windows-static-md
-          vcpkg install sqlite3:x64-windows-static-md
-          vcpkg integrate install
-      - name: test
-        uses: actions-rs/cargo@v1
-        with:
-          rust-version: stable
+          toolchain: ${{ matrix.rust }}
           command: test
 
   nux_arm7:
