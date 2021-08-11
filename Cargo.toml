@@ -26,7 +26,7 @@ thiserror = "1.0.25"
 [features]
 default = ["sqlite"]
 postgres = ["diesel/postgres", "diesel/r2d2"]
-sqlite = ["diesel/sqlite", "diesel/r2d2"]
+sqlite = ["diesel/sqlite", "diesel/r2d2", "sqlite-bundled"]
 create-user-binary = ["rpassword"]
 
 [dependencies.sqlite3-src]
