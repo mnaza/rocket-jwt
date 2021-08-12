@@ -2,6 +2,11 @@
 [![Build Status](https://travis-ci.com/marirs/rocket-jwt.svg?branch=master)](https://travis-ci.com/marirs/rocket-jwt)
 ![GitHub](https://img.shields.io/github/license/marirs/rocket-jwt)
 
+![Windows](https://github.com/mnaza/rocket-jwt/actions/workflows/windows.yml/badge.svg)
+![Ubuntu](https://github.com/mnaza/rocket-jwt/actions/workflows/linux.yml/badge.svg)
+![MacOs](https://github.com/mnaza/rocket-jwt/actions/workflows/MacOs.yml/badge.svg)
+![Armv7](https://github.com/mnaza/rocket-jwt/actions/workflows/LinuxArm7.yml/badge.svg)
+
 A barebones [Rocket](https://rocket.rs) API with [JWT](https://jwt.io) authentication and 
 database integration.
 
