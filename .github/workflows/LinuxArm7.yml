@@ -1,4 +1,4 @@
-name: CI
+name: Armv7 Linux
 on:
   pull_request:
   push:
